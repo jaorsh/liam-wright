@@ -1,1 +1,195 @@
-creating index file at root
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Liam Wright Photography</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400" />
+    <link rel="stylesheet" href="/css/normalise.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/css/grid.css" type="text/css" media="screen" />
+
+</head>
+    <body>
+	<header class="black">
+	    <a id="logo" href="/portfolio">Liam Wright Photography</a>
+
+	    <div class="nav">
+		<ul>
+			<li><a href="/weddings">weddings</a></li>
+			<li><a href="/portraits">portraits</a></li>
+			<li><a href="/fashion">fashion</a></li>
+			<li><a href="/blog">blog</a></li>
+			<li><a href="about">about</a></li>
+			<li><a href="/contact">contact</a></li>
+		</ul>
+
+	    </div>
+
+	    <div class="share" ><a href="http://facebook.com/liamwrightphotography"><img src="images/social/facebook-symbol.png" alt="Facebook Liam Wright Photography" /></a><a href="mailto:liam@liamwrightphotography.com"><img src="images/social/email-symbol.png" alt="Email Liam Wright Photography" /></a><a href="http://instagram.com/liamwrightphotography"><img src="images/social/instagram-symbol.png" alt="Instagram Liam Wright Photography" /></a></div>
+      <div class="shareFooter"></div>
+      </header>
+
+
+	    <div class="content black" style=" ">
+		Welcome to Liam Wright Photography
+	    </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
+
+	<script src="/js/backstretch.min.js"></script>
+	<script src="/js/jquery.transit.js"></script>
+  <script src="/js/History.js"></script>
+  <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js"></script>
+        <script>
+
+
+
+$(document).ready(function(){
+
+  // Prepare
+     var History = window.History; // Note: We are using a capital H instead of a lower h
+     if (!History.enabled) {
+         // History.js is disabled for this browser.
+         // This is because we can optionally choose to support HTML4 browsers or not.
+         return false;
+     }
+
+     // Bind to StateChange Event
+     History.Adapter.bind(window, 'statechange', function() { // Note: We are using statechange instead of popstate
+         var State = History.getState();
+         if (State.internal) {
+             var url = State.url;
+             loadpage(url);
+         } else {}
+
+     });
+
+var isloading = 0; var titlePage;
+    // Background Image
+    $.backstretch([ "/images/home/liam-wright-home-05.jpg","/images/home/liam-wright-home-10.jpg","/images/home/liam-wright-home-01.jpg","/images/home/liam-wright-home-09.jpg","/images/home/liam-wright-home-11.jpg","/images/home/liam-wright-home-03.jpg","/images/home/liam-wright-home-02.jpg","/images/home/liam-wright-home-04.jpg" ], {duration: 6000, fade: "slow" });
+
+    $(window).load(function () {
+    $('#mask').fadeOut('7000');
+});
+
+
+    // Highlight menu
+  //  highlightCurrentPage();
+
+$('body').on('click','.nav li a',function(event){
+  //first animate the header dom element to fix to the left
+    $('header').stop(true,true)
+    .animate({ left: '98px' }, 1000, function() { $('.content').fadeTo("slow",1); })
+    .animate({ height: '100%', top: '0px' }, 1000);
+  //invoke ajax loadpage with url
+     if (isloading !== 1) {
+         var url = $(this).attr('href');
+         loadpage(url);
+     }
+  //return false to prevent dom bubbling
+       return false;
+});
+
+$('body').on('click','#logo',function(event){
+  //first animate the header dom element to fix to the left
+    $('header').stop(true,true)
+    .animate({ left: '50%' }, 1000, function() { $('.content').fadeTo("slow",0); })
+    .animate({ height: '550px', top: '10%' }, 1000);
+
+    //invoke ajax loadpage with url
+       if (isloading !== 1) {
+           loadpage("/");
+       }
+  //return false to prevent dom bubbling
+       return false;
+});
+
+});
+
+function loadpage(url) {
+    isloading = 1;
+
+    toLoad = url + ' .content > *';
+    console.log(toLoad);
+    $('.content').innerHTML = "";
+    $('.content').load(toLoad, function(response, status, xhr) {
+        if (status == "error") {
+            var msg = "Sorry but there was an error: ";
+            $(".content").html(msg + xhr.status + " " + xhr.statusText);
+          History.pushState('/404', document.title + " | Liam Wright Photography", '/404');
+        } else {
+            var dataPage = $(response),
+            titlePage = dataPage.filter("title").text();
+            document.title = titlePage;
+           History.pushState(url, titlePage, url);
+          //  _gaq.push(['_trackPageview', url]);
+            pageLoad();
+        }
+
+    });
+}
+
+function pageLoad() {
+
+    pages = window.location.pathname.split('/');
+    page = window.location.pathname.split('/').pop();
+    if (page !== '') {
+      //page isn't home
+    } else {
+        if ($('html').hasClass('lt-ie10') === false) {
+          //Do stuff for IE
+
+        }
+    }
+
+
+    if ($.inArray("portraits", pages) > -1 || $.inArray("fashion", pages) > -1 || $.inArray("weddings", pages) > -1) {
+       var $grid = $('.grid').imagesLoaded( function() {
+    $grid.masonry({
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      columnWidth: '.grid-sizer'
+    });
+  });
+
+    }
+
+    if ($.inArray("contact", pages) > -1) {
+      $('.message').one("keypress", function () {
+      $('.name').fadeIn();
+      });
+      $('.name').one("keypress", function () {
+      $('.email').fadeIn();
+      $('.tel').fadeIn();
+      $('.submit').fadeIn();
+      });
+  }
+
+
+}
+
+pages = window.location.pathname.split('/');
+page = window.location.pathname.split('/').pop();
+if (page !== '') {
+  //page isn't home
+  $('header').stop(true,true)
+  .animate({ left: '98px' }, 1000, function() { $('.content').fadeTo("slow",1); })
+  .animate({ height: '100%', top: '0px' }, 1000);
+}
+        </script>
+
+         <script type="text/javascript" src="/js/masonry.pkgd.min.js"></script>
+         <script type="text/javascript" src="/js/imagesloaded.pkgd.min.js"></script>
+      </body>
+</html>
