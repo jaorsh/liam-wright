@@ -90,7 +90,7 @@ function loadpage(url) {
   var titlePage;
   isloading = 1;
 
-  toLoad = 'index.html .' + url + '. > *';
+  toLoad = 'index.html .' + url + ' > *';
   console.log(toLoad);
   $('.content').innerHTML = "";
   $('.content').load(toLoad, function(response, status, xhr) {
