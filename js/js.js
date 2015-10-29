@@ -22,16 +22,16 @@ $(document).ready(function() {
   var titlePage;
 
   // Background Image
-  $.backstretch(["/upload/images/home/liam-wright-home-05.jpg",
-    "/upload/images/home/liam-wright-home-10.jpg",
-    "/upload/images/home/liam-wright-home-01.jpg",
-    "/upload/images/home/liam-wright-home-09.jpg",
-    "/upload/images/home/liam-wright-home-11.jpg",
-    "/upload/images/home/liam-wright-home-03.jpg",
-    "/upload/images/home/liam-wright-home-02.jpg",
-    "/upload/images/home/liam-wright-home-04.jpg"
+  $.backstretch(["images/home/liam-wright-home-05.jpg",
+    "images/home/liam-wright-home-10.jpg",
+    "images/home/liam-wright-home-01.jpg",
+    "images/home/liam-wright-home-09.jpg",
+    "images/home/liam-wright-home-11.jpg",
+    "images/home/liam-wright-home-03.jpg",
+    "images/home/liam-wright-home-02.jpg",
+    "images/home/liam-wright-home-04.jpg"
   ], {
-    duration: 6000,
+    duration: 5000,
     fade: "slow"
   });
 
