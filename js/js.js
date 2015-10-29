@@ -35,11 +35,6 @@ $(document).ready(function() {
     fade: "slow"
   });
 
-  $(window).load(function() {
-    $('#mask').fadeOut('7000');
-  });
-
-
   // Highlight menu
   //  highlightCurrentPage();
 
@@ -79,7 +74,7 @@ $(document).ready(function() {
       .animate({
         height: '550px',
         top: '10%'
-      }, 1000);
+    }, 1000);
 
     //invoke ajax loadpage with url
     if (isloading !== 1) {
@@ -95,7 +90,7 @@ function loadpage(url) {
   var titlePage;
   isloading = 1;
 
-  toLoad = url + ' .content > *';
+  toLoad = 'index.html .' + url + '. > *';
   console.log(toLoad);
   $('.content').innerHTML = "";
   $('.content').load(toLoad, function(response, status, xhr) {
