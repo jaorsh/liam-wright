@@ -255,3 +255,5 @@ div.description {
       float: right;
   }
 .active { color: #D3BCA1;}
+
+.hidden { display:none; }
