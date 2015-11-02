@@ -140,7 +140,6 @@ function inject() {
         columnWidth: '.grid-sizer'
       });
     });
-    $('.fancybox').fancybox();
   }
 }
 
