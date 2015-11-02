@@ -74,7 +74,7 @@ $(document).ready(function() {
       .animate({
         height: '550px',
         top: '10%'
-    }, 1000);
+      }, 1000);
 
     //invoke ajax loadpage with url
     if (isloading !== 1) {
@@ -100,6 +100,7 @@ function loadpage(url) {
       History.pushState('/404', document.title +
         " | Liam Wright Photography", '/404');
     } else {
+      //  $('.'+url).fadeIn();
       var dataPage = $(response),
         titlePage = dataPage.filter("title").text();
       document.title = titlePage;
@@ -139,7 +140,6 @@ function inject() {
         columnWidth: '.grid-sizer'
       });
     });
-    $('.fancybox').fancybox();
   }
 }
 
